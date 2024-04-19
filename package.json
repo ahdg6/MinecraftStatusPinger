@@ -23,19 +23,30 @@
   "bugs": {
     "url": "https://github.com/woodendoors7/MinecraftStatusPinger/issues"
   },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
+  "exports": {
+    "require": {
+      "types": "./dist/index.d.cts",
+      "default": "./dist/index.cjs"
+    },
+    "import": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    }
+  },
   "scripts": {
     "test": "cls && tsc && cd test && tsc --target ES2021 --strictNullChecks true --moduleResolution node test.ts && node test.js",
     "start": "node dist/index.js",
-    "build": "tsc -p tsconfig.json",
+    "build": "pkgroll",
+    "prepublish": "pkgroll",
     "dev": "ts-node-dev src/index.ts"
   },
   "engines": {
     "node": ">=16.0.0"
   },
   "license": "GPL-3.0-or-later",
-  "type": "module",
   "devDependencies": {
     "@types/express": "^4.17.16",
     "@types/node": "^18.11.18",
