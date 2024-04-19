@@ -1,5 +1,5 @@
 {
-  "name": "minecraftstatuspinger",
+  "name": "@ahdg/minecraftstatuspinger",
   "repository": {
     "type": "git",
     "url": "https://github.com/woodendoors7/MinecraftStatusPinger.git"
